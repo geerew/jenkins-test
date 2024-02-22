@@ -11,9 +11,9 @@ pipeline {
         // Build a docker image with the required tools. This runs on every branch
         stage("Build Docker Image") {
             steps {
-                sh 'which docker'
                 sh 'hostname'
                 sh 'ps -ef'
+                sh 'which docker'
                 
                 script {
                     TAG = "${IMAGE_NAME}:${env.CHANGE_ID?'PR' + CHANGE_ID + '_':''}${BUILD_NUMBER}_${GIT_COMMIT.take(7)}"
