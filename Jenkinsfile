@@ -11,6 +11,8 @@ pipeline {
         // Build a docker image with the required tools. This runs on every branch
         stage("Build Docker Image") {
             steps {
+                sh "echo hello from $POD_CONTAINER"
+                sh 'env'
                 sh 'hostname'
                 sh 'ps -ef'
                 sh 'which docker'
