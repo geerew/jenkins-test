@@ -10,7 +10,7 @@ metadata:
     some-label: stest
 spec:
   containers:
-  - name: jenkins-agent
+  - name: jnlp
     image: jenkins/inbound-agent:latest
     command:
     - cat
