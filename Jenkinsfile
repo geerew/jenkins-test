@@ -33,10 +33,10 @@ pipeline {
                     sh 'which docker'
                     sh 'pwd'
                     sh 'ls -l'
-                        //script {
-                        //    TAG = "${IMAGE_NAME}:${env.CHANGE_ID?'PR' + CHANGE_ID + '_':''}${BUILD_NUMBER}_${GIT_COMMIT.take(7)}"
-                        //    IMG_REF = docker.build(TAG, '--pull -f Dockerfile .')
-                        //}
+                    script {
+                         TAG = "${IMAGE_NAME}:${env.CHANGE_ID?'PR' + CHANGE_ID + '_':''}${BUILD_NUMBER}_${GIT_COMMIT.take(7)}"
+                         IMG_REF = docker.build(TAG, '--pull -f Dockerfile .')
+                    }
                 }
             } 
         }
